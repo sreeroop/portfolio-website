@@ -6,43 +6,13 @@ import ProjectCard from '../components/ProjectCard'
 import Tools from '../components/Tools'
 import ToolStrip from '../components/ToolStrip'
 import ExperienceStrip from '../components/ExperienceStrip'
+import Landing from '../components/Landing'
+import { experiences, tools } from '../data/data'
+
+
 
 export default function Home() {
-  const tools = [
-    {
-      name: 'ReactJS',
-      color: '#5ED3F3'
-    },
-    {
-      name: 'NextJS',
-      color: '#000'
-    },
-    {
-      name: 'VueJS',
-      color: '#3FB27F'
-    },
-    {
-      name: 'Firebase',
-      color: '#FFCB2C'
-    },
-    {
-      name: 'ThreeJS',
-      color: '#5ED3F3'
-    },
-    {
-      name: 'NodeJS',
-      color: '#3FB27F'
-    },
-    {
-      name: 'Git',
-      color: '#E84D31'
-    },
-    {
-      name: 'express',
-      color: '#5ED3F3'
-    },
 
-  ]
   return (
     <>
       <Head>
@@ -54,15 +24,16 @@ export default function Home() {
         <Typography variant='h5' sx={{ width: '200px' }}>Sreeroop</Typography>
       </AppBar>
       <Grid container sx={{ display: 'flex', flexDirection: 'column', maxWidth: '100vw', overflowX: 'hidden' }}>
-        <Grid item sx={{ minHeight: '100vh' }}>
-          Landing page
+        <Grid item sx={{ minHeight: '100vh', }}>
+          <Landing />
         </Grid>
 
         <Grid item sx={{ minHeight: '100vh', width: '110vw', margin: 'auto' }}>
-          <ExperienceStrip />
-          <ExperienceStrip />
-          <ExperienceStrip />
-          <ExperienceStrip />
+          {
+            experiences.map((experience) => {
+              return <ExperienceStrip data={experience} />
+            })
+          }
         </Grid>
         <Grid item sx={{ minHeight: '100vh', width: '110vw', margin: 'auto' }}>
           <div className={`${styles.marquee} ${styles['marquee--fit-content']} ${styles['marquee--hover-pause']} ${styles['enable-animation']}`}>

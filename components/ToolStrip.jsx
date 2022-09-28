@@ -9,7 +9,8 @@ const ToolStrip = ({ icon, name, color }) => {
                     box-shadow: 0 5px 15px ${color};
                     background:${color};
                 }
-            `}</style>
+            `}
+            </style>
 
             <div className={style.button} style={{
                 'box-shadow': `0 5px 15px ${color}`,

@@ -1,32 +1,30 @@
-import { Collapse, List, ListItemButton, ListItemIcon } from '@mui/material';
+import { Box, Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { ExpandLess, ExpandMore, Inbox, StarBorder, Work } from '@mui/icons-material'
 import { useState } from 'react'
 
-const ExperienceStrip = () => {
-    const [open, setOpen] = useState(true);
+const ExperienceStrip = ({ data }) => {
+    const [open, setOpen] = useState(false);
 
     const handleClick = () => {
         setOpen(!open);
     };
     return (
-        <>
+        <Box sx={{ width: '300px' }}>
             <ListItemButton onClick={handleClick}>
                 <ListItemIcon>
-                    <InboxIcon />
+                    <Work />
                 </ListItemIcon>
-                <ListItemText primary="Inbox" />
+                <ListItemText primary={data.role} secondary={data.company} />
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     <ListItemButton sx={{ pl: 4 }}>
-                        <ListItemIcon>
-                            <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText primary="Starred" />
+                        <ListItemText primary={data.description} />
                     </ListItemButton>
                 </List>
             </Collapse>
-        </>
+        </Box>
     )
 }
 
