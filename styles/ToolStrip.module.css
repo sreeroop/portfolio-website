@@ -1,16 +1,78 @@
-.button {
-    width: '200px';
-    height: '50px';
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 30px;
-    padding: 15px 40px;
-    border-radius: 4px;
-    font-weight: normal;
-    text-transform: uppercase;
-    transition: all 0.2s ease-in-out;
+.marquee {
+    --space: 4rem;
+    --duration: 60s;
+    --gap: var(--space);
+}
 
-    display: 'flex';
-    flex-direction: 'row';
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
 
+    100% {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+}
+
+
+.marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+    transform: skewY(-3deg);
+}
+
+.marquee__group {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: var(--gap);
+    min-width: 100%;
+    height: 200px;
+    animation: scroll var(--duration) linear infinite;
+}
+
+.marquee-p .marquee__group {
+    height: 100px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee__group {
+        animation-play-state: running;
+    }
+}
+
+.marquee__group span {
+    max-width: 180px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.marquee__group p {
+    background-image: linear-gradient(75deg,
+            hsl(240deg 70% 49%) 0%,
+            hsl(253deg 70% 49%) 11%,
+            hsl(267deg 70% 49%) 22%,
+            hsl(280deg 71% 48%) 33%,
+            hsl(293deg 71% 48%) 44%,
+            hsl(307deg 71% 48%) 56%,
+            hsl(320deg 71% 48%) 67%,
+            hsl(333deg 72% 48%) 78%,
+            hsl(347deg 72% 48%) 89%,
+            hsl(0deg 73% 47%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.marquee--borders {
+    border-block: 3px solid rgb(70, 70, 70);
+    padding-block: 0.75rem;
+}
+
+.marquee--reverse .marquee__group {
+    animation-direction: reverse;
+    animation-delay: calc(var(--duration) / -2);
 }

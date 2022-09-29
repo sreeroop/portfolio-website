@@ -1,29 +1,46 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
-import React from 'react'
+import { Launch } from '@mui/icons-material'
+import { Button, Card, CardActions, CardContent, CardMedia, IconButton, Typography, useTheme } from '@mui/material'
 
-const ProjectCard = () => {
+import { AiFillGithub } from 'react-icons/ai'
+
+const ProjectCard = ({ data }) => {
+    const theme = useTheme()
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 400, margin: '30px', background: theme?.palette?.secondary?.main }}>
             <CardMedia
                 component="img"
-                height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
-                alt="green iguana"
+                image={data?.image}
+                alt="screenshot of website"
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    {data?.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     Lizards are a widespread group of squamate reptiles, with over 6,000
                     species, ranging across all continents except Antarctica
                 </Typography>
             </CardContent>
+            <CardContent sx={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-evenly', padding: 0 }}>
+                {
+                    data?.tools?.map((tool, index) => {
+                        return (
+                            <div key={index} style={{ width: '30px', height: '30px', objectFit: 'cover' }}>
+                                <img src={`/${tool}.svg`} style={{ width: '100%', height: '100%' }} alt="" />
+                            </div>
+                        )
+                    })
+                }
+            </CardContent>
             <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+                <IconButton>
+                    <AiFillGithub />
+                </IconButton>
+                <IconButton>
+                    <Launch />
+                </IconButton>
             </CardActions>
-        </Card>
+        </Card >
     )
 }
 

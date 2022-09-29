@@ -17,7 +17,7 @@ export const tools = [
     },
     {
         name: 'ThreeJS',
-        color: '#5ED3F3'
+        color: '#000'
     },
     {
         name: 'NodeJS',
@@ -28,8 +28,8 @@ export const tools = [
         color: '#E84D31'
     },
     {
-        name: 'express',
-        color: '#5ED3F3'
+        name: 'ExpressJS',
+        color: '#000'
     },
 
 ]

@@ -1,30 +1,61 @@
-import Image from 'next/image'
-import React from 'react'
-import style from '../styles/ToolStrip.module.css'
-const ToolStrip = ({ icon, name, color }) => {
-    return (
-        <div>
-            <style jsx>{`
-                .button{
-                    box-shadow: 0 5px 15px ${color};
-                    background:${color};
-                }
-            `}
-            </style>
 
-            <div className={style.button} style={{
-                'box-shadow': `0 5px 15px ${color}`,
-                'border': `1px solid ${color}`
-            }}>
-                <div className={style.icon}>
-                    <Image width='50px' height='50px' src={`/${name}.svg`} />
+import React from 'react'
+import { tools } from '../data/data'
+import style from '../styles/ToolStrip.module.css'
+import Tool from './Tool'
+const ToolStrip = () => {
+    return (
+        <>
+            <div className={style.marquee}>
+                <div className={style.marquee__group}>
+                    {
+                        tools.map((tool, index) => {
+                            return <Tool key={index} tool={tool} />
+                        })
+                    }
                 </div>
-                <div className={style.name}>
-                    {name}
+
+                <div aria-hidden="true" className={style.marquee__group}>
+                    {
+                        tools.map((tool, index) => {
+                            return <Tool key={index} tool={tool} />
+                        })
+                    } </div>
+            </div>
+
+            <div className={`${style["marquee"]} ${style["marquee-p"]} ${style["marquee--borders"]}`}>
+                <div className={style.marquee__group}>
+                    <p>My Weapon of choice</p>
+                    <p aria-hidden="true">My Weapon of choice</p>
+                    <p aria-hidden="true">My Weapon of choice</p>
+                </div>
+
+                <div aria-hidden="true" className={style.marquee__group}>
+                    <p>My Weapon of choice</p>
+                    <p>My Weapon of choice</p>
+                    <p>My Weapon of choice</p>
                 </div>
             </div>
 
-        </div >
+            <div className={`${style["marquee"]} ${style["marquee--reverse"]}`}>
+                <div className={style.marquee__group}>
+                    {
+                        tools.map((tool, index) => {
+                            return <Tool key={index} tool={tool} />
+                        })
+                    }
+                </div>
+
+                <div aria-hidden="true" className={style.marquee__group}>
+                    {
+                        tools.map((tool, index) => {
+                            return <Tool key={index} tool={tool} />
+                        })
+                    }
+                </div>
+            </div>
+        </>
+
     )
 }
 
