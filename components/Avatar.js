@@ -9,7 +9,7 @@ export default function Model({ ...props }) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/Avatar.glb')
   return (
-    <group ref={group} {...props} dispose={null} scale={50} position={[0, -5, 0]} rotateOnWorldAxis={-Math.PI / 6}>
+    <group ref={group} {...props} dispose={null} scale={10} position={[0, -14, 0]}>
       <primitive object={nodes.Hips} />
       <skinnedMesh geometry={nodes.Wolf3D_Body.geometry} material={materials.Wolf3D_Body} skeleton={nodes.Wolf3D_Body.skeleton} />
       <skinnedMesh geometry={nodes.Wolf3D_Outfit_Bottom.geometry} material={materials.Wolf3D_Outfit_Bottom} skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton} />

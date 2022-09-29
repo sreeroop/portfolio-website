@@ -30,7 +30,7 @@
     justify-content: space-around;
     gap: var(--gap);
     min-width: 100%;
-    height: 200px;
+    height: 250px;
     animation: scroll var(--duration) linear infinite;
 }
 
