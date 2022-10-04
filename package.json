@@ -15,6 +15,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.4",
+    "@mui/styles": "^5.10.7",
     "@react-spring/three": "^9.5.5",
     "@react-three/drei": "^9.32.3",
     "@react-three/fiber": "^8.8.4",

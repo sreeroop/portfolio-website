@@ -41,3 +41,11 @@ export const experiences = [
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt aspernatur labore, natus nam dolore est cupiditate dolorum error tenetur esse fugiat iste neque iusto in veniam similique accusamus? Iste alias debitis quae magni reprehenderit iure nostrum repellat officiis ducimus blanditiis temporibus unde tenetur velit, iusto deleniti exercitationem corrupti, fugiat autem."
     }
 ]
+
+
+export const menuItem = [
+    {
+        text: 'Profile',
+        path: 'teacher-portal/'
+    },
+]

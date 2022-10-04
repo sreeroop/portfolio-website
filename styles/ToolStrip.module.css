@@ -20,7 +20,7 @@
     overflow: hidden;
     user-select: none;
     gap: var(--gap);
-    transform: skewY(-3deg);
+    /* transform: skewY(-3deg); */
 }
 
 .marquee__group {
@@ -52,7 +52,9 @@
 }
 
 .marquee__group p {
-    background-image: linear-gradient(75deg,
+    font-size: 2rem;
+    color: rgb(112, 101, 101)
+        /* background-image: linear-gradient(75deg,
             hsl(240deg 70% 49%) 0%,
             hsl(253deg 70% 49%) 11%,
             hsl(267deg 70% 49%) 22%,
@@ -64,7 +66,7 @@
             hsl(347deg 72% 48%) 89%,
             hsl(0deg 73% 47%) 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
 }
 
 .marquee--borders {

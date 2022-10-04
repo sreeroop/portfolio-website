@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
-import { AppBar, Typography, Grid, Box, IconButton, Toolbar } from '@mui/material'
-import styles from '../styles/Home.module.css'
+import { AppBar, Typography, Grid, Box, IconButton, Toolbar, Drawer, Container, Divider, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import ProjectCard from '../components/ProjectCard'
 import ToolStrip from '../components/ToolStrip'
 import ExperienceStrip from '../components/ExperienceStrip'
-import Landing from '../components/Landing'
-import { tools } from '../data/data'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../backend/firebase'
 import { useTheme } from "next-themes";
@@ -17,8 +14,24 @@ import { Canvas } from '@react-three/fiber'
 import Model from '../components/Avatar'
 import { OrbitControls } from '@react-three/drei'
 import Link from 'next/link'
+import { Close, Image, Folder, Description, Menu } from "@mui/icons-material";
 
+const SideContainer = styled(Container)(({ theme }) => ({
+  '&.MuiContainer-root': {
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    }
+  }
+}))
+const BurgerIcon = styled(IconButton)(({ theme }) => ({
+  '&.MuiIconButton-root': {
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    }
+  }
+}))
 const MUISwitch = styled(Switch)(({ theme }) => ({
+  marginRight: "2rem",
   width: 62,
   height: 34,
   padding: 7,
@@ -65,6 +78,8 @@ const MUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
+
+
 export default function Home() {
 
   Globals.assign({
@@ -96,6 +111,13 @@ export default function Home() {
     fetchExperience()
   }, [])
 
+  const [open, setState] = useState(false);
+
+  //function that is being called every time the drawer should open or close, the keys tab and shift are excluded so the user can focus between the elements with the keys
+  const toggleDrawer = (open) => (event) => {
+    //changes the function state according to the value of open
+    setState(open);
+  };
   return (
     <>
       <Head>
@@ -113,6 +135,69 @@ export default function Home() {
           <Link href="#projects">Projects</Link>
           <MUISwitch checked={resolvedTheme === "dark"} onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")} />
         </Toolbar>
+
+        <BurgerIcon
+          edge="start"
+          color="inherit"
+          aria-label="open drawer"
+          onClick={toggleDrawer(true)}
+          sx={{
+            mr: 2,
+
+          }}
+        >
+          <Menu />
+        </BurgerIcon>
+        <SideContainer maxWidth="lg" disableGutters="true">
+          <Toolbar>
+            {/* The outside of the drawer */}
+            <Drawer
+              //from which side the drawer slides in
+              anchor="right"
+              //if open is true --> drawer is shown
+              open={open}
+              //function that is called when the drawer should close
+              onClose={toggleDrawer(false)}
+              //function that is called when the drawer should open
+              onOpen={toggleDrawer(true)}
+            >
+              {/* The inside of the drawer */}
+              <Box
+                sx={{
+                  p: 2,
+                  height: 1,
+                  backgroundColor: "#dbc8ff"
+                }}
+              >
+                {/* when clicking the icon it calls the function toggleDrawer and closes the drawer by setting the variable open to false */}
+                <IconButton sx={{ mb: 2 }}>
+                  <Close onClick={toggleDrawer(false)} />
+                </IconButton>
+
+                <Divider sx={{ mb: 2 }} />
+
+                <Box sx={{ mb: 2 }}>
+                  <Link href="#experience">Experience</Link>
+                  <Link href="#skills">Skills</Link>
+                  <Link href="#projects">Projects</Link>
+                </Box>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    position: "absolute",
+                    bottom: "0",
+                    left: "50%",
+                    transform: "translate(-50%, 0)"
+                  }}
+                >
+                </Box>
+              </Box>
+            </Drawer>
+          </Toolbar>
+        </SideContainer>
+
       </AppBar>
       <Grid container sx={{ display: 'flex', flexDirection: 'column', maxWidth: '100vw', overflowX: 'hidden' }}>
         <Grid item sx={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
@@ -124,16 +209,14 @@ export default function Home() {
           </Box>
           <Box sx={{ minWidth: '400px', minHeight: '400px' }}>
             <Canvas
-              colorManagement
-              shadowMap
               camera={{ position: [1, 1, 10], fov: 60 }}
               style={{ width: '400px', height: '400px' }}>
               <ambientLight intensity={0.3} />
               {/* Our main source of light, also casting our shadow */}
               <directionalLight
                 castShadow
-                position={[0, 10, 0]}
-                intensity={1.5}
+                position={[10, 10, 10]}
+                intensity={0.5}
                 shadow-mapSize-width={1024}
                 shadow-mapSize-height={1024}
                 shadow-camera-far={50}
@@ -143,8 +226,8 @@ export default function Home() {
                 shadow-camera-bottom={-10}
               />
               {/* A light to help illumnate the spinning boxes */}
-              <pointLight position={[-10, 0, -20]} intensity={0.5} />
-              <pointLight position={[0, -10, 0]} intensity={1.5} />
+              <pointLight position={[-10, 10, 10]} intensity={0.5} />
+              <pointLight position={[10, -10, 0]} intensity={0.5} />
               <Model />
               <OrbitControls />
             </Canvas>
