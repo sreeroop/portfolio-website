@@ -53,11 +53,22 @@ export default function Home() {
 
       <Grid container sx={{ display: 'flex', flexDirection: 'column', maxWidth: '100vw', overflowX: 'hidden' }}>
         <Grid item sx={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
-          {/* <Landing /> */}
-          {/* <Grid sx={{ height: '100vh', width: '100%', backdropFilter: 'blur(2px)', position: 'absolute', top: 0, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}> */}
-          <Box sx={{ minWidth: '400px' }}>
+          <Box sx={{
+            maxWidth: '600px',
+          }}>
             <Typography variant='h2' sx={{ margin: 'auto' }}>Hii👋👋</Typography>
             <Typography variant='h3' sx={{ margin: 'auto' }}>I'm Sreeroop</Typography>
+            <br />
+            <Typography variant='h4' sx={{ margin: 'auto' }}>
+              Software Engineer. Passionate developer who loves to learn new technologies
+            </Typography>
+            <br />
+            <Typography variant='h6' color='gray' sx={{ margin: 'auto' }}>
+              Exploring opportunities and side projects.
+            </Typography>
+            <Typography variant='h6' color='gray' sx={{ margin: 'auto' }}>
+              Currently working as web dev intern @ Vizuara
+            </Typography>
           </Box>
           <Box sx={{ minWidth: '400px', minHeight: '400px' }}>
             <Canvas
