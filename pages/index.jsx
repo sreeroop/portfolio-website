@@ -13,6 +13,7 @@ import Model from '../components/Avatar'
 import { OrbitControls } from '@react-three/drei'
 import Link from 'next/link'
 import Nav from '../components/Nav'
+import { Timeline } from '@mui/lab'
 
 export default function Home() {
 
@@ -28,9 +29,9 @@ export default function Home() {
     })
   }
   const fetchExperience = async () => {
-    const query = collection(db, `experiences
-    `)
+    const query = collection(db, `experiences`)
     const resData = await getDocs(query)
+    setExperiences([])
     resData.docs.forEach(doc => {
       setExperiences(experience => [...experience, doc.data()])
     })
@@ -100,19 +101,26 @@ export default function Home() {
           {/* </Grid> */}
         </Grid>
 
-        <Grid item sx={{ minHeight: '10vh', width: '110vw', margin: 'auto', textAlign: 'center' }}>
+        <Grid item sx={{ minHeight: '30vh', width: '110vw', margin: 'auto', textAlign: 'center' }}>
           <Typography variant='h3' sx={{ margin: 'auto' }}>My Experience</Typography>
-          {
-            experiences.map((experience, index) => {
-              return <ExperienceStrip key={index} data={experience} />
-            })
-          }
+          <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
+            <Timeline position="alternate">
+
+              {
+                experiences.map((experience, index) => {
+                  return <ExperienceStrip key={index} data={experience} />
+                })
+              }
+            </Timeline>
+          </Grid>
+
         </Grid>
-        <Grid item sx={{ minHeight: '100vh', width: '110vw', margin: 'auto' }}>
+        <Grid item sx={{ width: '100vw' }}>
           <ToolStrip />
         </Grid>
 
-        <Grid item sx={{ minHeight: '100vh', width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
+
+        <Grid item sx={{ width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
           <Typography variant='h3' sx={{ margin: 'auto' }}>My Projects</Typography>
           <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
             {
