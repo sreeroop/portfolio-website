@@ -9,7 +9,7 @@ const Tool = ({ tool }) => {
         <span className='tool' style={{ width: '200px', height: '120px' }}>
             <div style={{
                 boxShadow: `0 10px 50px ${(tool?.name == 'NextJS' || tool?.name == 'ExpressJS' || tool?.name == 'ThreeJS') ? theme.palette.color.main : tool?.color}`,
-                border: `1px solid ${tool?.color}`,
+                border: `1px solid ${(tool?.name == 'NextJS' || tool?.name == 'ExpressJS' || tool?.name == 'ThreeJS') ? theme.palette.color.main : tool?.color}`,
                 width: '100%',
                 height: '100%',
                 display: 'flex',

@@ -1,8 +1,11 @@
 import { Box, Container, IconButton, Paper, Stack, Typography } from '@mui/material'
 import styled from '@emotion/styled';
 import { GitHub, Instagram, LinkedIn, Twitter } from '@mui/icons-material';
+import { useTheme } from '@mui/material'
 
 const Footer = () => {
+    const theme = useTheme()
+
     const NavLinkStack = styled(Stack)(({ theme }) => ({
         '&.MuiStack-root': {
             [theme.breakpoints.down("lg")]: {
@@ -13,6 +16,11 @@ const Footer = () => {
             [theme.breakpoints.down("lg")]: {
                 display: "none",
             }
+        }
+    }))
+    const ThemedIcon = styled(IconButton)(({ theme }) => ({
+        '&.MuiIconButton-root': {
+            color: theme?.palette?.secondary?.main
         }
     }))
     return (
@@ -32,19 +40,23 @@ const Footer = () => {
                         my: 1
                     }}
                 >
-                    <NavLinkStack direction='row' alignItems="center" spacing={4}>
-                        <IconButton>
+                    <NavLinkStack direction='row' alignItems="center" spacing={4} sx={{
+                        '& .MuiIconButton': {
+
+                        }
+                    }}>
+                        <ThemedIcon>
                             <GitHub />
-                        </IconButton>
-                        <IconButton>
+                        </ThemedIcon>
+                        <ThemedIcon>
                             <LinkedIn />
-                        </IconButton>
-                        <IconButton>
+                        </ThemedIcon>
+                        <ThemedIcon>
                             <Twitter />
-                        </IconButton>
-                        <IconButton>
+                        </ThemedIcon>
+                        <ThemedIcon>
                             <Instagram />
-                        </IconButton>
+                        </ThemedIcon>
                     </NavLinkStack>
 
                 </Box>
