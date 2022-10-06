@@ -1,7 +1,10 @@
 import { TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, TimelineSeparator } from "@mui/lab"
+import { useTheme } from "@mui/material"
 
 
 const ExperienceStrip = ({ data }) => {
+    const theme = useTheme()
+
     // const [open, setOpen] = useState(false);
 
     // const handleClick = () => {
@@ -13,8 +16,8 @@ const ExperienceStrip = ({ data }) => {
                 {data.role}
             </TimelineOppositeContent>
             <TimelineSeparator>
-                <TimelineDot />
-                <TimelineConnector />
+                <TimelineDot sx={{ background: theme?.palette?.secondary?.main }} />
+                <TimelineConnector sx={{ background: theme?.palette?.secondary?.main }} />
             </TimelineSeparator>
             <TimelineContent>{data.company}</TimelineContent>
         </TimelineItem>

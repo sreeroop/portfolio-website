@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
-import { Typography, Grid, Box } from '@mui/material'
+import { Typography, Grid, Box, useTheme } from '@mui/material'
 import ProjectCard from '../components/ProjectCard'
 import ToolStrip from '../components/ToolStrip'
 import ExperienceStrip from '../components/ExperienceStrip'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../backend/firebase'
-import { useTheme } from "next-themes";
 import { Globals } from "@react-spring/shared";
 import { Canvas } from '@react-three/fiber'
 import Model from '../components/Avatar'
@@ -14,8 +13,10 @@ import { OrbitControls } from '@react-three/drei'
 import Link from 'next/link'
 import Nav from '../components/Nav'
 import { Timeline } from '@mui/lab'
+import Footer from '../components/Footer'
 
 export default function Home() {
+  const theme = useTheme()
 
   const [projects, setProjects] = useState([])
   const [experiences, setExperiences] = useState([])
@@ -53,12 +54,12 @@ export default function Home() {
       <Nav />
 
       <Grid container sx={{ display: 'flex', flexDirection: 'column', maxWidth: '100vw', overflowX: 'hidden' }}>
-        <Grid item sx={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
+        <Grid item sx={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap' }}>
           <Box sx={{
             maxWidth: '600px',
           }}>
             <Typography variant='h2' sx={{ margin: 'auto' }}>Hii👋👋</Typography>
-            <Typography variant='h3' sx={{ margin: 'auto' }}>I'm Sreeroop</Typography>
+            <Typography variant='h3' sx={{ margin: 'auto' }}>I'm <span style={{ color: theme?.palette?.secondary?.main }}>Sreeroop</span></Typography>
             <br />
             <Typography variant='h4' sx={{ margin: 'auto' }}>
               Software Engineer. Passionate developer who loves to learn new technologies
@@ -101,7 +102,7 @@ export default function Home() {
           {/* </Grid> */}
         </Grid>
 
-        <Grid item sx={{ minHeight: '30vh', width: '110vw', margin: 'auto', textAlign: 'center' }}>
+        <Grid item sx={{ minHeight: '30vh', width: '100vw', margin: 'auto', textAlign: 'center' }}>
           <Typography variant='h3' sx={{ margin: 'auto' }}>My Experience</Typography>
           <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
             <Timeline position="alternate">
@@ -130,6 +131,7 @@ export default function Home() {
             }
           </Grid>
         </Grid>
+        <Footer />
 
 
       </Grid >

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styled from '@emotion/styled';
-import { AppBar, Stack, Box, IconButton, Toolbar, Drawer, Container, Divider, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material'
+import { AppBar, Stack, Box, IconButton, Toolbar, Drawer, Container, Divider, ListItemIcon, ListItemText, useMediaQuery, useTheme, Typography } from '@mui/material'
 import { Close, Menu } from "@mui/icons-material";
 import ThemeToggler from './ThemeToggler';
 
@@ -44,11 +44,12 @@ const Nav = () => {
     const theme = useTheme()
     const showStack = useMediaQuery(theme?.breakpoints?.up('lg'));
     return (
-        <AppBar AppBar sx={{ position: 'fixed', left: 0, top: 0, display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', height: '10vh', width: '100vw' }
+        <AppBar AppBar sx={{ background: theme?.palette?.secondary?.main, position: 'fixed', left: 0, top: 0, display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', height: '10vh', width: '100vw' }
         }>
-            <IconButton>
+            <Typography variant='h5' sx={{ marginLeft: '20px', color: theme?.palette?.primary?.main }}>SREEROOP</Typography>
+            {/* <IconButton>
                 <img src='/logo.svg' style={{ width: '50px', height: '50px' }} />
-            </IconButton>
+            </IconButton> */}
             <Stack direction='row' alignItems="center" spacing={3} mr={4}>
                 {/* <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', width: '30vw' }}> */}
                 {showStack && <NavLinkStack direction='row' alignItems="center" spacing={4}>
