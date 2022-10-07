@@ -10,9 +10,7 @@ const ToolStrip = () => {
 
     return (
         <>
-            <div className={style.marquee} style={{
-                // borderTop: `1px dashed ${theme?.palette?.primary?.main}`
-            }}>
+            <div className={style.marquee}>
                 <div className={style.marquee__group}>
                     {
                         tools.map((tool, index) => {
@@ -29,37 +27,8 @@ const ToolStrip = () => {
                     } </div>
             </div>
 
-            <div className={`${style["marquee"]} ${style["marquee-p"]} ${style["marquee--borders"]}`}>
-                <div className={style.marquee__group}>
-                    <p>My Weapon of choice</p>
-                    <p aria-hidden="true">My Weapon of choice</p>
-                    <p aria-hidden="true">My Weapon of choice</p>
-                </div>
 
-                <div aria-hidden="true" className={style.marquee__group}>
-                    <p>My Weapon of choice</p>
-                    <p>My Weapon of choice</p>
-                    <p>My Weapon of choice</p>
-                </div>
-            </div>
 
-            <div className={`${style["marquee"]} ${style["marquee--reverse"]}`}>
-                <div className={style.marquee__group}>
-                    {
-                        tools.map((tool, index) => {
-                            return <Tool key={index} tool={tool} />
-                        })
-                    }
-                </div>
-
-                <div aria-hidden="true" className={style.marquee__group}>
-                    {
-                        tools.map((tool, index) => {
-                            return <Tool key={index} tool={tool} />
-                        })
-                    }
-                </div>
-            </div>
         </>
 
     )

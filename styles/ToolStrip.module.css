@@ -1,6 +1,6 @@
 .marquee {
-    --space: 4rem;
-    --duration: 60s;
+    --space: 0rem;
+    --duration: 30s;
     --gap: var(--space);
 }
 
@@ -27,7 +27,7 @@
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     gap: var(--gap);
     min-width: 100%;
     height: 300px;

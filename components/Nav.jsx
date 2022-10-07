@@ -44,7 +44,7 @@ const Nav = () => {
     const theme = useTheme()
     const showStack = useMediaQuery(theme?.breakpoints?.up('lg'));
     return (
-        <AppBar AppBar sx={{ background: theme?.palette?.secondary?.main, position: 'fixed', left: 0, top: 0, display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', height: '10vh', width: '100vw' }
+        <AppBar component="nav" sx={{ background: theme?.palette?.secondary?.main, position: 'fixed', left: 0, top: 0, display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', height: '10vh', width: '100vw' }
         }>
             <Typography variant='h5' sx={{ marginLeft: '20px', color: theme?.palette?.primary?.main }}>SREEROOP</Typography>
             {/* <IconButton>

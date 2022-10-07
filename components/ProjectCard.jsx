@@ -11,6 +11,7 @@ const ProjectCard = ({ data }) => {
                 component="img"
                 image={data?.image}
                 alt="screenshot of website"
+                sx={{ width: '101%', height: '100%', objectFit: 'cover' }}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
