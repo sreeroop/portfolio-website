@@ -62,7 +62,7 @@ export default function Home() {
             <Box sx={{
               display: 'flex', flexDirection: 'row'
             }}>
-              <Typography variant='h3'>I'm </Typography>
+              <Typography variant='h3'>I&apos;m </Typography>
               <Typography variant='h3' sx={{ color: theme?.palette?.secondary?.main, marginLeft: '15px' }}>Sreeroop</Typography>
             </Box>
             <br />
