@@ -11,26 +11,26 @@ const Nav = () => {
 
     const NavLinkStack = styled(Stack)(({ theme }) => ({
         '&.MuiStack-root': {
-            [theme.breakpoints.down("lg")]: {
+            [theme?.breakpoints?.down("lg")]: {
                 display: "none",
             }
         },
         '& .MuiStack': {
-            [theme.breakpoints.down("lg")]: {
+            [theme?.breakpoints?.down("lg")]: {
                 display: "none",
             }
         }
     }))
     const SideContainer = styled(Container)(({ theme }) => ({
         '&.MuiContainer-root': {
-            [theme.breakpoints.up("md")]: {
+            [theme?.breakpoints?.up("md")]: {
                 display: "none",
             }
         }
     }))
     const BurgerIcon = styled(IconButton)(({ theme }) => ({
         '&.MuiIconButton-root': {
-            [theme.breakpoints.up("md")]: {
+            [theme?.breakpoints?.up("md")]: {
                 display: "none",
             }
         }
@@ -70,7 +70,7 @@ const Nav = () => {
                     }}
                 >
                     <Menu />
-                    <SideContainer maxWidth='disable' disableGutters="true">
+                    <SideContainer maxWidth='disable' disableGutters={true}>
                         <Toolbar>
                             {/* The outside of the drawer */}
                             <Drawer

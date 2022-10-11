@@ -20,17 +20,17 @@ export default function Home() {
   const [experiences, setExperiences] = useState([])
 
   const fetchProject = async () => {
+    setProjects([])
     const query = collection(db, `projects`)
     const resData = await getDocs(query)
-    setProjects([])
     resData.docs.forEach(doc => {
       setProjects(projects => [...projects, doc.data()])
     })
   }
   const fetchExperience = async () => {
+    setExperiences([])
     const query = collection(db, `experiences`)
     const resData = await getDocs(query)
-    setExperiences([])
     resData.docs.forEach(doc => {
       setExperiences(experience => [...experience, doc.data()])
     })
@@ -61,7 +61,7 @@ export default function Home() {
             <Box sx={{
               display: 'flex', flexDirection: 'row'
             }}>
-              <Typography variant='h3'>I'm </Typography>
+              <Typography variant='h3'>I&apos;m </Typography>
               <Typography variant='h3' sx={{ color: theme?.palette?.secondary?.main, marginLeft: '15px' }}>Sreeroop</Typography>
             </Box>
             <br />
@@ -78,10 +78,9 @@ export default function Home() {
           </Box>
           <Box sx={{ minWidth: '400px', minHeight: '400px' }}>
             <Canvas
-              camera={{ position: [1, 1, 10], fov: 60 }}
+              // camera={{ position: [1, 1, 10], fov: 60 }}
               style={{ width: '400px', height: '400px' }}>
               <ambientLight intensity={0.3} />
-              {/* Our main source of light, also casting our shadow */}
               <directionalLight
                 castShadow
                 position={[10, 10, 10]}
@@ -94,19 +93,15 @@ export default function Home() {
                 shadow-camera-top={10}
                 shadow-camera-bottom={-10}
               />
-              {/* A light to help illumnate the spinning boxes */}
               <pointLight position={[-10, 10, 10]} intensity={0.5} />
               <pointLight position={[10, -10, 0]} intensity={0.5} />
               <Suspense fallback={null}>
-
                 <Model />
               </Suspense>
               <OrbitControls />
             </Canvas>
 
           </Box>
-
-          {/* </Grid> */}
         </Grid>
 
         <Grid item sx={{ minHeight: '30vh', width: '100vw', margin: '5vh auto', textAlign: 'center' }}>
@@ -115,7 +110,7 @@ export default function Home() {
             <Timeline position="alternate">
 
               {
-                experiences.map((experience, index) => {
+                experiences?.map((experience, index) => {
                   return <ExperienceStrip key={index} data={experience} />
                 })
               }
@@ -135,12 +130,13 @@ export default function Home() {
           <Typography variant='h3' sx={{ margin: 'auto' }}>My Projects</Typography>
           <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
             {
-              projects.map(project => {
+              projects?.map(project => {
                 return <ProjectCard key={project?.slug} data={project} />
               })
             }
           </Grid>
         </Grid>
+
         <Footer />
 
 

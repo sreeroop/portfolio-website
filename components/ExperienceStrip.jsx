@@ -13,13 +13,13 @@ const ExperienceStrip = ({ data }) => {
     return (
         <TimelineItem>
             <TimelineOppositeContent color="text.secondary">
-                {data.role}
+                {data?.role}
             </TimelineOppositeContent>
             <TimelineSeparator>
                 <TimelineDot sx={{ background: theme?.palette?.secondary?.main }} />
                 <TimelineConnector sx={{ background: theme?.palette?.secondary?.main }} />
             </TimelineSeparator>
-            <TimelineContent>{data.company}</TimelineContent>
+            <TimelineContent>{data?.company}</TimelineContent>
         </TimelineItem>
     )
 }

@@ -8,12 +8,12 @@ const Footer = () => {
 
     const NavLinkStack = styled(Stack)(({ theme }) => ({
         '&.MuiStack-root': {
-            [theme.breakpoints.down("lg")]: {
+            [theme?.breakpoints?.down("lg")]: {
                 display: "none",
             }
         },
         '& .MuiStack': {
-            [theme.breakpoints.down("lg")]: {
+            [theme?.breakpoints?.down("lg")]: {
                 display: "none",
             }
         }
@@ -70,7 +70,7 @@ const Footer = () => {
                     }}
                 >
                     <Typography variant="caption" color="initial">
-                        Copyright © {new Date().getFullYear()}
+                        Copyright © 2022
                     </Typography>
                 </Box>
             </Container>
@@ -79,3 +79,4 @@ const Footer = () => {
 }
 
 export default Footer
+

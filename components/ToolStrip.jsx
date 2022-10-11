@@ -21,7 +21,7 @@ const ToolStrip = () => {
 
                 <div aria-hidden="true" className={style.marquee__group}>
                     {
-                        tools.map((tool, index) => {
+                        tools?.map((tool, index) => {
                             return <Tool key={index} tool={tool} />
                         })
                     } </div>
