@@ -92,8 +92,8 @@ const Nav = () => {
                                     }}
                                 >
                                     {/* when clicking the icon it calls the function toggleDrawer and closes the drawer by setting the variable open to false */}
-                                    <IconButton sx={{ mb: 2 }}>
-                                        <Close onClick={toggleDrawer(false)} />
+                                    <IconButton onClick={toggleDrawer(false)} sx={{ mb: 2 }}>
+                                        <Close />
                                     </IconButton>
 
                                     <Divider sx={{ mb: 2 }} />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import Head from 'next/head'
 import { Typography, Grid, Box, useTheme } from '@mui/material'
 import ProjectCard from '../components/ProjectCard'
@@ -6,11 +6,9 @@ import ToolStrip from '../components/ToolStrip'
 import ExperienceStrip from '../components/ExperienceStrip'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../backend/firebase'
-import { Globals } from "@react-spring/shared";
 import { Canvas } from '@react-three/fiber'
 import Model from '../components/Avatar'
 import { OrbitControls } from '@react-three/drei'
-import Link from 'next/link'
 import Nav from '../components/Nav'
 import { Timeline } from '@mui/lab'
 import Footer from '../components/Footer'
@@ -54,9 +52,10 @@ export default function Home() {
       <Nav />
 
       <Grid container sx={{ display: 'flex', flexDirection: 'column', maxWidth: '100vw', overflowX: 'hidden' }}>
-        <Grid item sx={{ minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap' }}>
+        <Grid item sx={{ marginTop: '10vh', minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap' }}>
           <Box sx={{
             maxWidth: '600px',
+            padding: '20px'
           }}>
             <Typography variant='h2' sx={{ margin: 'auto' }}>Hii👋👋</Typography>
             <Box sx={{
@@ -98,7 +97,10 @@ export default function Home() {
               {/* A light to help illumnate the spinning boxes */}
               <pointLight position={[-10, 10, 10]} intensity={0.5} />
               <pointLight position={[10, -10, 0]} intensity={0.5} />
-              <Model />
+              <Suspense fallback={null}>
+
+                <Model />
+              </Suspense>
               <OrbitControls />
             </Canvas>
 
@@ -107,7 +109,7 @@ export default function Home() {
           {/* </Grid> */}
         </Grid>
 
-        <Grid item sx={{ minHeight: '30vh', width: '100vw', margin: 'auto', textAlign: 'center' }}>
+        <Grid item sx={{ minHeight: '30vh', width: '100vw', margin: '5vh auto', textAlign: 'center' }}>
           <Typography variant='h3' sx={{ margin: 'auto' }}>My Experience</Typography>
           <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
             <Timeline position="alternate">
