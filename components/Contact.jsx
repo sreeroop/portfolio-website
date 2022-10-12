@@ -44,13 +44,14 @@ const Contact = () => {
             borderRight: '1px solid rgba(255, 255, 255, 0.1)',
             borderBottom: '1px solid rgba(255, 255, 255, 0.21)',
             borderRadius: '15px',
+            cursor: 'not-allowed'
         }}>
             <TextField
                 variant="standard"
                 label="name"
                 size="medium"
                 sx={{
-                    width: 300, margin: '10px'
+                    width: 300, margin: '10px',
                 }}
                 id="name"
                 onChange={handleChange}
@@ -86,6 +87,7 @@ const Contact = () => {
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
+                cursor: 'not-allowed'
             }} endIcon={<Send />}>
                 Send
             </Button>

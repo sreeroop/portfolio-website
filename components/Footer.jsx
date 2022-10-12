@@ -1,7 +1,8 @@
 import { Box, Container, IconButton, Paper, Stack, Typography } from '@mui/material'
 import styled from '@emotion/styled';
-import { GitHub, Instagram, LinkedIn, Mail, Twitter } from '@mui/icons-material';
+import { GitHub, Instagram, LinkedIn, Mail, Telegram, Twitter } from '@mui/icons-material';
 import { useTheme } from '@mui/material'
+import Link from 'next/link';
 
 const Footer = () => {
     const theme = useTheme()
@@ -54,21 +55,36 @@ const Footer = () => {
 
                         }
                     }}>
-                        <ThemedIcon>
-                            <GitHub />
-                        </ThemedIcon>
-                        <ThemedIcon>
-                            <LinkedIn />
-                        </ThemedIcon>
-                        <ThemedIcon>
-                            <Twitter />
-                        </ThemedIcon>
-                        <ThemedIcon>
-                            <Mail />
-                        </ThemedIcon>
-                        <ThemedIcon>
-                            <Instagram />
-                        </ThemedIcon>
+                        <a href="https://github.com/sreeroop">
+                            <ThemedIcon>
+                                <GitHub />
+                            </ThemedIcon>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sreeroopsk/">
+                            <ThemedIcon>
+                                <LinkedIn />
+                            </ThemedIcon>
+                        </a>
+                        <a href="https://twitter.com/sreeroopsk">
+                            <ThemedIcon>
+                                <Twitter />
+                            </ThemedIcon>
+                        </a>
+                        <a href="mailto:sreeroopsk10@gmail.com">
+                            <ThemedIcon>
+                                <Mail />
+                            </ThemedIcon>
+                        </a>
+                        <a href="t.me/sreeroop">
+                            <ThemedIcon>
+                                <Telegram />
+                            </ThemedIcon>
+                        </a>
+                        <a href="https://instagram.com/sree_roop_">
+                            <ThemedIcon>
+                                <Instagram />
+                            </ThemedIcon>
+                        </a>
                     </NavLinkStack>
 
                 </Box>
