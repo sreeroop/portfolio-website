@@ -46,7 +46,22 @@ const Nav = () => {
     return (
         <AppBar component="nav" sx={{ background: theme?.palette?.secondary?.main, position: 'fixed', left: 0, top: 0, display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', height: '10vh', width: '100vw' }
         }>
-            <Typography variant='h5' sx={{ marginLeft: '20px', color: theme?.palette?.primary?.main }}>SREEROOP</Typography>
+            <Typography variant='h5'
+                sx={{
+                    // backgroundcolor: "primary",
+                    // backgroundImage: `linear-gradient(45deg, ${theme?.palette?.color?.main} , ${theme?.palette?.primary?.main} )`,
+                    // backgroundSize: "100%",
+                    // backgroundRepeat: "repeat",
+                    // backgroundClip: "text",
+                    // WebkitBackgroundClip: "text",
+                    // WebkitTextFillColor: "transparent",
+                    marginLeft: '20px',
+                    color: theme?.palette?.color?.main
+                }}
+            // sx={{
+
+            // }}
+            >SREEROOP</Typography>
             {/* <IconButton>
                 <img src='/logo.svg' style={{ width: '50px', height: '50px' }} />
             </IconButton> */}

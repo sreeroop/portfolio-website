@@ -1,5 +1,6 @@
 import { Launch } from '@mui/icons-material'
 import { Button, Card, CardActions, CardContent, CardMedia, IconButton, Typography, useTheme } from '@mui/material'
+import Link from 'next/link'
 
 import { AiFillGithub } from 'react-icons/ai'
 
@@ -17,7 +18,7 @@ const ProjectCard = ({ data }) => {
                 <Typography gutterBottom variant="h5" component="div">
                     {data?.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body" color="text.secondary">
                     Lizards are a widespread group of squamate reptiles, with over 6,000
                     species, ranging across all continents except Antarctica
                 </Typography>
@@ -37,9 +38,11 @@ const ProjectCard = ({ data }) => {
                 <IconButton>
                     <AiFillGithub />
                 </IconButton>
-                <IconButton>
-                    <Launch />
-                </IconButton>
+                <Link href={`${data?.website}`}>
+                    <IconButton>
+                        <Launch />
+                    </IconButton>
+                </Link>
             </CardActions>
         </Card >
     )

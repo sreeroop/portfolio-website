@@ -12,6 +12,8 @@ import { OrbitControls } from '@react-three/drei'
 import Nav from '../components/Nav'
 import { Timeline } from '@mui/lab'
 import Footer from '../components/Footer'
+import { Devices, Work } from '@mui/icons-material'
+import Contact from '../components/Contact'
 
 export default function Home() {
   const theme = useTheme()
@@ -20,17 +22,17 @@ export default function Home() {
   const [experiences, setExperiences] = useState([])
 
   const fetchProject = async () => {
-    setProjects([])
     const query = collection(db, `projects`)
     const resData = await getDocs(query)
+    setProjects([])
     resData.docs.forEach(doc => {
       setProjects(projects => [...projects, doc.data()])
     })
   }
   const fetchExperience = async () => {
-    setExperiences([])
     const query = collection(db, `experiences`)
     const resData = await getDocs(query)
+    setExperiences([])
     resData.docs.forEach(doc => {
       setExperiences(experience => [...experience, doc.data()])
     })
@@ -52,17 +54,25 @@ export default function Home() {
       <Nav />
 
       <Grid container sx={{ display: 'flex', flexDirection: 'column', maxWidth: '100vw', overflowX: 'hidden' }}>
-        <Grid item sx={{ marginTop: '10vh', minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap' }}>
+        <Grid item sx={{ marginTop: '10vh', minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap' }}>
           <Box sx={{
-            maxWidth: '600px',
+            maxWidth: '650px',
             padding: '20px'
           }}>
-            <Typography variant='h2' sx={{ margin: 'auto' }}>Hii👋👋</Typography>
+            <Typography variant='h2' sx={{ margin: 'auto' }}>Hiii👋👋</Typography>
             <Box sx={{
               display: 'flex', flexDirection: 'row'
             }}>
               <Typography variant='h3'>I&apos;m </Typography>
-              <Typography variant='h3' sx={{ color: theme?.palette?.secondary?.main, marginLeft: '15px' }}>Sreeroop</Typography>
+              <Typography variant='h3' sx={{
+                color: theme?.palette?.secondary?.main, marginLeft: '15px',
+                backgroundImage: `linear-gradient(135deg, ${theme?.palette?.primary?.main} , ${theme?.palette?.secondary?.main} )`,
+                backgroundSize: "100%",
+                backgroundRepeat: "repeat",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}>Sreeroop</Typography>
             </Box>
             <br />
             <Typography variant='h4' sx={{ margin: 'auto' }}>
@@ -70,13 +80,13 @@ export default function Home() {
             </Typography>
             <br />
             <Typography variant='h6' color='gray' sx={{ margin: 'auto' }}>
-              Exploring opportunities and side projects.
+              <Devices sx={{ marginRight: '10px' }} />  Exploring opportunities and side projects.
             </Typography>
             <Typography variant='h6' color='gray' sx={{ margin: 'auto' }}>
-              Currently working as web dev intern @ Vizuara
+              <Work sx={{ marginRight: '10px' }} /> Currently working as web dev intern at Vizuara
             </Typography>
           </Box>
-          <Box sx={{ minWidth: '400px', minHeight: '400px' }}>
+          <Box sx={{ maxWidth: '600px', maxHeight: '600px' }}>
             <Canvas
               // camera={{ position: [1, 1, 10], fov: 60 }}
               style={{ width: '400px', height: '400px' }}>
@@ -134,6 +144,12 @@ export default function Home() {
                 return <ProjectCard key={project?.slug} data={project} />
               })
             }
+          </Grid>
+        </Grid>
+        <Grid item sx={{ width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
+          <Typography variant='h3' sx={{ margin: 'auto' }}>Ping me!</Typography>
+          <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
+            <Contact />
           </Grid>
         </Grid>
 
