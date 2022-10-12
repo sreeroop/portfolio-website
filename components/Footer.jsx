@@ -1,6 +1,6 @@
 import { Box, Container, IconButton, Paper, Stack, Typography } from '@mui/material'
 import styled from '@emotion/styled';
-import { GitHub, Instagram, LinkedIn, Twitter } from '@mui/icons-material';
+import { GitHub, Instagram, LinkedIn, Mail, Twitter } from '@mui/icons-material';
 import { useTheme } from '@mui/material'
 
 const Footer = () => {
@@ -36,6 +36,16 @@ const Footer = () => {
                         flexGrow: 1,
                         justifyContent: "center",
                         display: "flex",
+                        mb: 2,
+                    }}
+                >
+                    <Typography variant='h3' sx={{ margin: 'auto' }}>Ping me!</Typography>
+                </Box>
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                        justifyContent: "center",
+                        display: "flex",
                         my: 1
                     }}
                 >
@@ -52,6 +62,9 @@ const Footer = () => {
                         </ThemedIcon>
                         <ThemedIcon>
                             <Twitter />
+                        </ThemedIcon>
+                        <ThemedIcon>
+                            <Mail />
                         </ThemedIcon>
                         <ThemedIcon>
                             <Instagram />

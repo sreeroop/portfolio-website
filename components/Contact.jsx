@@ -1,9 +1,10 @@
-import { useState } from 'react'
-import { Box, Button, TextField, useTheme } from '@mui/material'
+import { useRef, useState } from 'react'
+import { Box, Button, FormControl, TextField, useTheme } from '@mui/material'
 import { Send } from '@mui/icons-material'
 import styled from '@emotion/styled'
 
 const Contact = () => {
+    const contact = useRef()
     const theme = useTheme()
 
     const [data, setData] = useState({
@@ -17,6 +18,17 @@ const Contact = () => {
             width: '300px'
         }
     }))
+    const handleChange = (e, value) => {
+        setData({ ...data, [e.target.id]: e.target.value || value })
+    }
+    const submit = () => {
+
+
+        // fetch('', {
+        //     method: 'POST',
+        //     data
+        // })
+    }
     return (
         <Box sx={{
             minWidth: '350px',
@@ -33,29 +45,38 @@ const Contact = () => {
             borderBottom: '1px solid rgba(255, 255, 255, 0.21)',
             borderRadius: '15px',
         }}>
-            <TextInput
-                required
+            <TextField
+                variant="standard"
+                label="name"
+                size="medium"
+                sx={{
+                    width: 300, margin: '10px'
+                }}
                 id="name"
-                label="Name"
-                value={data?.name}
-                variant="standard"
+                onChange={handleChange}
             />
-            <TextInput
-                required
-                id="email"
-                label="Email"
-                value={data?.email}
+            <TextField
                 variant="standard"
-            />
-            <TextInput
-                required
 
-                id="message"
-                label="Message"
+                label="Email"
+                size="medium"
+                sx={{
+                    width: 300, margin: '10px'
+                }}
+                id="email"
+                onChange={handleChange}
+            />
+            <TextField
+                variant="standard"
                 multiline
                 rows={4}
-                value={data?.message}
-                variant="standard"
+                label="Message"
+                size="medium"
+                sx={{
+                    width: 300, margin: '10px'
+                }}
+                id="message"
+                onChange={handleChange}
             />
             <Button variant="contained" sx={{
                 color: theme?.palette?.secondary?.main, marginLeft: '15px',
@@ -68,7 +89,7 @@ const Contact = () => {
             }} endIcon={<Send />}>
                 Send
             </Button>
-        </Box>
+        </Box >
     )
 }
 
