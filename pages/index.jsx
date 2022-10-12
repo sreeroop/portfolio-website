@@ -14,6 +14,7 @@ import { Timeline } from '@mui/lab'
 import Footer from '../components/Footer'
 import { Devices, Work } from '@mui/icons-material'
 import Contact from '../components/Contact'
+import style from '../styles/Home.module.css'
 
 export default function Home() {
   const theme = useTheme()
@@ -59,7 +60,7 @@ export default function Home() {
             maxWidth: '650px',
             padding: '20px'
           }}>
-            <Typography variant='h2' sx={{ margin: 'auto' }}>Hiii👋👋</Typography>
+            <Typography variant='h3' sx={{ margin: 'auto' }}>Hiii👋👋</Typography>
             <Box sx={{
               display: 'flex', flexDirection: 'row'
             }}>
@@ -115,7 +116,7 @@ export default function Home() {
         </Grid>
 
         <Grid item sx={{ minHeight: '30vh', width: '100vw', margin: '5vh auto', textAlign: 'center' }}>
-          <Typography variant='h3' sx={{ margin: 'auto' }}>My Experience</Typography>
+          <Typography variant='h3' sx={{ margin: 'auto' }}>Experience</Typography>
           <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
             <Timeline position="alternate">
 
@@ -128,16 +129,10 @@ export default function Home() {
           </Grid>
 
         </Grid>
-        <Grid item sx={{ width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexDirection: 'column', }}>
-
-          <Typography variant='h3' sx={{ margin: 'auto' }}>My Tools</Typography>
-
-          <ToolStrip />
-        </Grid>
 
 
         <Grid item sx={{ width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
-          <Typography variant='h3' sx={{ margin: 'auto' }}>My Projects</Typography>
+          <Typography variant='h3' sx={{ margin: 'auto' }}>Projects</Typography>
           <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
             {
               projects?.map(project => {
@@ -146,9 +141,28 @@ export default function Home() {
             }
           </Grid>
         </Grid>
-        <Grid item sx={{ width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
-          <Typography variant='h3' sx={{ margin: 'auto' }}>Ping me!</Typography>
-          <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
+        <Grid item sx={{ width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexDirection: 'column', }}>
+
+          <Typography variant='h3' sx={{ margin: 'auto' }}>Tools</Typography>
+
+          <ToolStrip />
+        </Grid>
+        <Grid item sx={{ position: 'relative', width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
+          <Typography variant='h3'>Ping me!</Typography>
+          <Box sx={{ position: 'absolute', top: '60%', left: '50%', transform: 'translate(-50%,-50%)' }}>
+            <div className={`${style["luminaire"]} ${style["on"]}`} style={{}}></div>
+
+          </Box>
+          {/* <Typography variant='h3' sx={{
+            zIndex: -1,
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            WebkitTextStroke: "1px white",
+            color: 'transparent',
+            transform: 'translate(-50%,-50%) scale(4)'
+          }}>Ping me!</Typography> */}
+          <Grid sx={{ marginTop: '4rem', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
             <Contact />
           </Grid>
         </Grid>

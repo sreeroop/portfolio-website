@@ -1,5 +1,5 @@
 import { TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, TimelineSeparator } from "@mui/lab"
-import { useTheme } from "@mui/material"
+import { Typography, useTheme } from "@mui/material"
 
 
 const ExperienceStrip = ({ data }) => {
@@ -13,13 +13,19 @@ const ExperienceStrip = ({ data }) => {
     return (
         <TimelineItem>
             <TimelineOppositeContent color="text.secondary">
-                {data?.role}
+                <Typography variant='h6' color='gray' sx={{ margin: 'auto' }}>
+                    {data?.role}
+                </Typography>
             </TimelineOppositeContent>
             <TimelineSeparator>
                 <TimelineDot sx={{ background: theme?.palette?.secondary?.main }} />
                 <TimelineConnector sx={{ background: theme?.palette?.secondary?.main }} />
             </TimelineSeparator>
-            <TimelineContent>{data?.company}</TimelineContent>
+            <TimelineContent>
+                <Typography variant='h6' color='gray' sx={{ margin: 'auto' }}>
+                    {data?.company}
+                </Typography>
+            </TimelineContent>
         </TimelineItem>
     )
 }

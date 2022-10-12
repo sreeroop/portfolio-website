@@ -19,11 +19,19 @@ const Contact = () => {
     }))
     return (
         <Box sx={{
+            minWidth: '350px',
             height: '50vh',
             display: "flex",
             justifyContent: 'space-around',
             alignItems: 'center',
-            flexDirection: 'column'
+            flexDirection: 'column',
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(20px)',
+            boxShadow: '0 25px 45px rgba(0, 0, 0, 0.1)',
+            border: '1px solid rgba(255, 255, 255, 0.25)',
+            borderRight: '1px solid rgba(255, 255, 255, 0.1)',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.21)',
+            borderRadius: '15px',
         }}>
             <TextInput
                 required

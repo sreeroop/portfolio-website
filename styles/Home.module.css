@@ -40,3 +40,58 @@
 .marquee--fit-content {
     max-width: fit-content;
 }
+
+
+.luminaire {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 50px;
+    border-radius: 50%;
+    background-color: #000;
+    box-shadow: 0 0 40px 20px rgb(255, 5, 5), 0 0 100px 50px rgb(248, 6, 6);
+    transition: box-shadow 4s ease-out;
+    animation: spin 16s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.luminaire:hover {
+    cursor: pointer;
+}
+
+.luminaire::before,
+.luminaire::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(40% - 10px);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 40px 20px #fff, 0 0 100px 50px rgba(255, 255, 0, 0.42);
+    opacity: 0;
+    transition: opacity 8s, transform 8s;
+}
+
+.on {
+    background-color: #fff;
+    box-shadow: 0 0 80px 40px #fff, 0 0 200px 100px rgba(255, 0, 255, 0.04);
+}
+
+.on::before {
+    transform: translateX(-100px);
+    opacity: 1;
+}
+
+.on::after {
+    transform: translateX(100px);
+    opacity: 1;
+}
