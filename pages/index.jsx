@@ -81,7 +81,7 @@ export default function Home() {
             </Typography>
             <br />
             <Typography variant='h6' color='gray' sx={{ margin: 'auto' }}>
-              <Devices sx={{ marginRight: '10px' }} />  Exploring opportunities and side projects.
+              <Devices sx={{ marginRight: '10px' }} />  Exploring opportunities and new technologies.
             </Typography>
             <Typography variant='h6' color='gray' sx={{ margin: 'auto' }}>
               <Work sx={{ marginRight: '10px' }} /> Currently working as web dev intern at Vizuara

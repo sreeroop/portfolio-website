@@ -118,10 +118,6 @@ const Nav = () => {
                     aria-label="open drawer"
                     onClick={toggleDrawer(true)}
                     sx={{
-                        // position: 'fixed',
-                        // top: '5vh',
-                        // right: '50px',
-                        // transform: 'translateY(-50%)',
                         marginLeft: '20px',
                         '&.MuiIconButton-root': {
                             [theme?.breakpoints?.up("md")]: {
@@ -132,77 +128,62 @@ const Nav = () => {
                 >
                     <Menu />
                 </IconButton>
-                <SideContainer maxWidth='disable' disableGutters={true}
-                    sx={{
-                        position: 'absolute',
-                        right: '-150px',
-                    }}
-                >
-                    <Toolbar>
-                        {/* The outside of the drawer */}
-                        <Drawer
-                            //from which side the drawer slides in
-                            anchor="right"
-                            //if open is true --> drawer is shown
-                            open={open}
-                        //function that is called when the drawer should close
 
-                        >
-                            {/* The inside of the drawer */}
-                            <Slide direction="left" in={open} mountOnEnter unmountOnExit>
-                                <Box
-                                    sx={{
-                                        p: 2,
-                                        height: 1,
-                                        background: theme?.palette?.secondary?.main,
-
-                                    }}
-                                >
-                                    {/* when clicking the icon it calls the function toggleDrawer and closes the drawer by setting the variable open to false */}
-                                    <IconButton onClick={toggleDrawer(false)} sx={{ mb: 2 }}>
-                                        <Close />
-                                    </IconButton>
-
-                                    <Divider sx={{ mb: 2 }} />
-
-                                    <Box sx={{
-                                        width: '300px',
-                                        mb: 2, display: "flex",
-                                        justifyContent: "space-around",
-                                        alignItems: 'center',
-                                        flexDirection: 'column',
-                                        minHeight: '30vh'
-
-                                    }}>
-                                        <Link href="#experience">
-                                            <Button varient="contained">
-                                                Resume
-                                            </Button>
-                                        </Link>
-                                        <Link href="#experience">Experience</Link>
-                                        <Link href="#skills">Skills</Link>
-                                        <Link href="#projects">Projects</Link>
-                                    </Box>
-
-                                    <Box
-                                        sx={{
-                                            display: "flex",
-                                            justifyContent: "space-around",
-                                            position: "absolute",
-                                            bottom: "0",
-                                            left: "50%",
-                                            transform: "translate(-50%, 0)"
-                                        }}
-                                    >
-                                    </Box>
-                                </Box>
-                            </Slide>
-                        </Drawer>
-                    </Toolbar>
-                </SideContainer>
             </Stack>
 
-        </AppBar>
+
+
+            <Drawer
+                anchor='right'
+                open={open}
+                onClose={toggleDrawer(false)}
+                sx={{
+                    width: 320,
+                    minHeight: '30vh',
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: 'center',
+                    flexDirection: 'column',
+
+
+                }}
+            >
+                <Box sx={{
+                    width: '320px',
+                    height: '100%',
+                    padding: '20px'
+                }}>
+                    <IconButton
+                        edge="start"
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={toggleDrawer(false)}
+                        sx={{
+                            marginLeft: '20px',
+                        }}
+                    >
+                        <Close />
+                    </IconButton>
+
+                    <NavLinkStack direction='column' alignItems="center" spacing={4}
+                        sx={{
+                            marginTop: '2rem'
+                        }}>
+                        <Link href="#experience">
+                            <Button varient="contained" sx={{
+                                padding: '5px 15px',
+                            }}>
+                                Resume
+                            </Button>
+                        </Link>
+                        <Link href="#experience">Experience</Link>
+                        <Link href="#skills">Skills</Link>
+                        <Link href="#projects">Projects</Link>
+                    </NavLinkStack>
+                </Box>
+            </Drawer>
+
+        </AppBar >
 
     )
 };
