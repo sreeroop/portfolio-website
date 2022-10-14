@@ -19,8 +19,8 @@ const ProjectCard = ({ data }) => {
                     {data?.title}
                 </Typography>
                 <Typography variant="body" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+
+                    {data?.description}
                 </Typography>
             </CardContent>
             <CardContent sx={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-evenly', padding: 0 }}>

@@ -115,14 +115,14 @@ export default function Home() {
           </Box>
         </Grid>
 
-        <Grid item sx={{ minHeight: '30vh', width: '100vw', margin: '5vh auto', textAlign: 'center' }}>
+        <Grid id="experience" item sx={{ minHeight: '30vh', width: '100vw', margin: '5vh auto', textAlign: 'center' }}>
           <Typography variant='h3' sx={{ margin: 'auto' }}>Experience</Typography>
           <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
             <Timeline position="alternate">
 
               {
                 experiences?.map((experience, index) => {
-                  return <ExperienceStrip key={index} data={experience} />
+                  return <ExperienceStrip key={index} index={index} size={experiences.length} data={experience} />
                 })
               }
             </Timeline>
@@ -131,7 +131,7 @@ export default function Home() {
         </Grid>
 
 
-        <Grid item sx={{ width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
+        <Grid id="projects" item sx={{ width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
           <Typography variant='h3' sx={{ margin: 'auto' }}>Projects</Typography>
           <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
             {
@@ -141,13 +141,13 @@ export default function Home() {
             }
           </Grid>
         </Grid>
-        <Grid item sx={{ width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexDirection: 'column', }}>
+        <Grid id="skills" item sx={{ width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexDirection: 'column', }}>
 
           <Typography variant='h3' sx={{ margin: 'auto' }}>Tools</Typography>
 
           <ToolStrip />
         </Grid>
-        <Grid item sx={{ position: 'relative', width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
+        <Grid id="connect" item sx={{ position: 'relative', width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
           <Typography variant='h3'>Ping me!</Typography>
           <Box sx={{ position: 'absolute', top: '60%', left: '50%', transform: 'translate(-50%,-50%)' }}>
             <div className={`${style["luminaire"]} ${style["on"]}`} style={{}}></div>

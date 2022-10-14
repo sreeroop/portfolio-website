@@ -97,7 +97,7 @@ const Nav = () => {
             <Stack direction='row' alignItems="center" sx={{ position: 'relative' }} spacing={3} mr={4}>
                 {/* <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', width: '30vw' }}> */}
                 {showStack && <NavLinkStack direction='row' alignItems="center" spacing={4}>
-                    <Link href="#experience">
+                    <Link href="/resume.pdf">
                         <Button varient="contained" sx={{
                             padding: '5px 15px',
 
@@ -106,8 +106,9 @@ const Nav = () => {
                         </Button>
                     </Link>
                     <Link href="#experience">Experience</Link>
-                    <Link href="#skills">Skills</Link>
                     <Link href="#projects">Projects</Link>
+                    <Link href="#skills">Skills</Link>
+                    <Link href="#connect">Connect</Link>
                 </NavLinkStack>}
                 {/* </Toolbar> */}
                 <ThemeToggler />
@@ -169,7 +170,7 @@ const Nav = () => {
                         sx={{
                             marginTop: '2rem'
                         }}>
-                        <Link href="#experience">
+                        <Link href="/resume.pdf">
                             <Button varient="contained" sx={{
                                 padding: '5px 15px',
                             }}>
@@ -177,8 +178,9 @@ const Nav = () => {
                             </Button>
                         </Link>
                         <Link href="#experience">Experience</Link>
-                        <Link href="#skills">Skills</Link>
                         <Link href="#projects">Projects</Link>
+                        <Link href="#skills">Skills</Link>
+                        <Link href="#connect">Connect</Link>
                     </NavLinkStack>
                 </Box>
             </Drawer>
