@@ -109,7 +109,7 @@ export default function Home() {
               <Suspense fallback={null}>
                 <Model />
               </Suspense>
-              <OrbitControls />
+              {/* <OrbitControls /> */}
             </Canvas>
 
           </Box>
