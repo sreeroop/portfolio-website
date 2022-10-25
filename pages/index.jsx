@@ -55,7 +55,7 @@ export default function Home() {
       <Nav />
 
       <Grid container sx={{ display: 'flex', flexDirection: 'column', maxWidth: '100vw', overflowX: 'hidden' }}>
-        <Grid item sx={{ marginTop: '10vh', minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap' }}>
+        <Grid item id="hero" sx={{ marginTop: '10vh', minHeight: '100vh', position: 'relative', display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap' }}>
           <Box sx={{
             maxWidth: '650px',
             padding: '20px'
