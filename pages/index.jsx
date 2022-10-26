@@ -150,7 +150,7 @@ export default function Home() {
         <Grid id="connect" item sx={{ position: 'relative', width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
           <Typography variant='h3'>Ping me!</Typography>
           <Box sx={{ position: 'absolute', top: '60%', left: '50%', transform: 'translate(-50%,-50%)' }}>
-            <div className={`${style["luminaire"]} ${style["on"]}`} style={{}}></div>
+            <div className={`${style["luminaire"]} ${style["on"]}`}></div>
 
           </Box>
           {/* <Typography variant='h3' sx={{

@@ -1,10 +1,10 @@
-import { useRef, useState } from 'react'
-import { Box, Button, FormControl, TextField, useTheme } from '@mui/material'
+import { useState } from 'react'
+import { Box, Button, TextField, useTheme } from '@mui/material'
 import { Send } from '@mui/icons-material'
 import styled from '@emotion/styled'
-
+import { arrayUnion, doc, setDoc } from "firebase/firestore";
+import { db } from '../backend/firebase';
 const Contact = () => {
-    const contact = useRef()
     const theme = useTheme()
 
     const [data, setData] = useState({
@@ -22,12 +22,14 @@ const Contact = () => {
         setData({ ...data, [e.target.id]: e.target.value || value })
     }
     const submit = () => {
+        const Ref = doc(db, 'messages', `${data?.name + Math.floor(Math.random() * 100) + data?.email}`);
+        setDoc(Ref, {
+            email: data?.email,
+            name: data?.name,
+            message: data?.message
+        }, { merge: true });
 
 
-        // fetch('', {
-        //     method: 'POST',
-        //     data
-        // })
     }
     return (
         <Box sx={{
@@ -44,7 +46,6 @@ const Contact = () => {
             borderRight: '1px solid rgba(255, 255, 255, 0.1)',
             borderBottom: '1px solid rgba(255, 255, 255, 0.21)',
             borderRadius: '15px',
-            cursor: 'not-allowed'
         }}>
             <TextField
                 variant="standard"
@@ -87,8 +88,9 @@ const Contact = () => {
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-                cursor: 'not-allowed'
-            }} endIcon={<Send />}>
+            }} endIcon={<Send />}
+                onClick={submit}
+            >
                 Send
             </Button>
         </Box >
