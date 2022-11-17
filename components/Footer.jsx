@@ -1,6 +1,6 @@
 import { Box, Container, IconButton, Paper, Stack, Typography } from '@mui/material'
 import styled from '@emotion/styled';
-import { GitHub, Instagram, LinkedIn, Mail, Telegram, Twitter } from '@mui/icons-material';
+import { GitHub, Instagram, LinkedIn, Mail, Telegram, Twitter, Snapchat } from '@mui/icons-material';
 import { useTheme } from '@mui/material'
 import Link from 'next/link';
 
@@ -83,6 +83,11 @@ const Footer = () => {
                         <a href="https://instagram.com/sree_roop_">
                             <ThemedIcon>
                                 <Instagram />
+                            </ThemedIcon>
+                        </a>
+<a href="https://www.snapchat.com/add/sreeroopsk">
+                            <ThemedIcon>
+                                <Snapchat />
                             </ThemedIcon>
                         </a>
                     </NavLinkStack>
