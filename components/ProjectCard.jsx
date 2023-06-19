@@ -35,14 +35,16 @@ const ProjectCard = ({ data }) => {
                 }
             </CardContent>
             <CardActions>
-                <IconButton>
-                    <AiFillGithub />
-                </IconButton>
-                <Link href={`${data?.website}`}>
+                {data?.github && <Link href={`${data?.github}`}>
+                    <IconButton>
+                        <AiFillGithub />
+                    </IconButton>
+                </Link>}
+                {data?.website && <Link href={`${data?.website}`}>
                     <IconButton>
                         <Launch />
                     </IconButton>
-                </Link>
+                </Link>}
             </CardActions>
         </Card >
     )

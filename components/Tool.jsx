@@ -6,7 +6,7 @@ const Tool = ({ tool }) => {
     const theme = useTheme()
 
     return (
-        <span className='tool' style={{ width: '200px', height: '120px' }}>
+        <span className='tool' style={{ width: '160px', height: '50px' }}>
             <div style={{
                 boxShadow: `0 10px 50px ${(tool?.name == 'NextJS' || tool?.name == 'ExpressJS' || tool?.name == 'ThreeJS') ? theme?.palette?.color?.main : tool?.color}`,
                 border: `1px solid ${(tool?.name == 'NextJS' || tool?.name == 'ExpressJS' || tool?.name == 'ThreeJS') ? theme?.palette?.color?.main : tool?.color}`,
@@ -15,14 +15,13 @@ const Tool = ({ tool }) => {
                 display: 'flex',
                 justifyContent: 'space-around',
                 alignItems: 'center',
-                flexDirection: 'column'
+                flexDirection: 'row-reverse'
             }}>
-                <div style={{ height: '50px', width: '50px', objectFit: 'cover' }}>
+                <div style={{ height: '30px', width: '30px', objectFit: 'cover', overflow: 'hidden' }}>
                     {tool?.name == 'NextJS' && <NextIcon color={theme?.palette?.color?.main} />}
                     {tool?.name == 'ExpressJS' && <ExpressIcon color={theme?.palette?.color?.main} />}
                     {tool?.name == 'ThreeJS' && <ThreeJSIcon color={theme?.palette?.color?.main} />}
-                    {tool?.name !== 'NextJS' && tool?.name !== 'ExpressJS' && tool?.name !== 'ThreeJS' && <img width='50px' height='50px' src={`/${tool?.name}.svg`} />}
-
+                    {tool?.name !== 'NextJS' && tool?.name !== 'ExpressJS' && tool?.name !== 'ThreeJS' && <img width='30px' height='30px' src={`/${tool?.name}.svg`} />}
                 </div>
                 <div >
                     {tool?.name}

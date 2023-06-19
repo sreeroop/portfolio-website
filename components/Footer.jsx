@@ -1,8 +1,7 @@
 import { Box, Container, IconButton, Paper, Stack, Typography } from '@mui/material'
 import styled from '@emotion/styled';
-import { GitHub, Instagram, LinkedIn, Mail, Telegram, Twitter, Snapchat } from '@mui/icons-material';
+import { GitHub, Instagram, LinkedIn, Mail, Telegram, Twitter, Snap } from '@mui/icons-material';
 import { useTheme } from '@mui/material'
-import Link from 'next/link';
 
 const Footer = () => {
     const theme = useTheme()
@@ -13,7 +12,7 @@ const Footer = () => {
                 display: "none",
             }
         },
-        '& .MuiStack': {
+        '&.MuiStack': {
             [theme?.breakpoints?.down("lg")]: {
                 display: "none",
             }
@@ -85,11 +84,11 @@ const Footer = () => {
                                 <Instagram />
                             </ThemedIcon>
                         </a>
-<a href="https://www.snapchat.com/add/sreeroopsk">
+                        {/* <a href="https://www.snapchat.com/add/sreeroopsk">
                             <ThemedIcon>
                                 <Snapchat />
                             </ThemedIcon>
-                        </a>
+                        </a> */}
                     </NavLinkStack>
 
                 </Box>
@@ -103,7 +102,7 @@ const Footer = () => {
                     }}
                 >
                     <Typography variant="caption" color="initial">
-                        Copyright © 2022
+                        Copyright © 2023
                     </Typography>
                 </Box>
             </Container>
