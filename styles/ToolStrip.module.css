@@ -1,5 +1,5 @@
 .marquee {
-    --space: 0rem;
+    --space: 0.5rem;
     --duration: 30s;
     --gap: var(--space);
 }

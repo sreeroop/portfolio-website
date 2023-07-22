@@ -27,13 +27,14 @@ export default function Home() {
     const resData = await getDocs(query)
     setProjects([])
     resData.docs.forEach(doc => {
-      setProjects(projects => [...projects, doc.data()])
+      setProjects(projects => [...projects, doc.data()].sort((a, b) => b - a))
     })
   }
   const fetchExperience = async () => {
     const query = collection(db, `experiences`)
     const resData = await getDocs(query)
     setExperiences([])
+
     resData.docs.forEach(doc => {
       setExperiences(experience => [...experience, doc.data()])
     })
@@ -77,7 +78,7 @@ export default function Home() {
             </Box>
             <br />
             <Typography variant='h4' sx={{ margin: 'auto' }}>
-              Software Engineer. Passionate developer who loves to learn new technologies
+              A Software Development Engineer Passionate developer who loves to learn new technologies
             </Typography>
             <br />
             <Typography variant='h6' color='gray' sx={{ margin: 'auto' }}>
@@ -121,7 +122,7 @@ export default function Home() {
             <Timeline position="alternate">
 
               {
-                experiences?.map((experience, index) => {
+                experiences.sort((a, b) => (b.id - a.id))?.map((experience, index) => {
                   return <ExperienceStrip key={index} index={index} size={experiences.length} data={experience} />
                 })
               }
@@ -133,9 +134,9 @@ export default function Home() {
 
         <Grid id="projects" item sx={{ width: '100vw', alignItems: 'center', padding: '20px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'column', }}>
           <Typography variant='h3' sx={{ margin: 'auto' }}>Projects</Typography>
-          <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
+          <Grid sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row-reverse', }}>
             {
-              projects?.map(project => {
+              projects?.sort((a, b) => { return -(b.title - a.title); })?.map(project => {
                 return <ProjectCard key={project?.slug} data={project} />
               })
             }
@@ -153,15 +154,7 @@ export default function Home() {
             <div className={`${style["luminaire"]} ${style["on"]}`}></div>
 
           </Box>
-          {/* <Typography variant='h3' sx={{
-            zIndex: -1,
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            WebkitTextStroke: "1px white",
-            color: 'transparent',
-            transform: 'translate(-50%,-50%) scale(4)'
-          }}>Ping me!</Typography> */}
+
           <Grid sx={{ marginTop: '4rem', display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around', flexDirection: 'row', }}>
             <Contact />
           </Grid>

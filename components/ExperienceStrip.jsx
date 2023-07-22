@@ -13,12 +13,12 @@ const ExperienceStrip = ({ data, index, size }) => {
     return (
         <TimelineItem>
             <TimelineOppositeContent color="text.secondary">
-                <Typography variant='h6' color='gray' sx={{ margin: 'auto' }}>
+                <Typography variant='h6' sx={{ margin: 'auto', color: index == 0 ? theme?.palette?.primary?.main : "gray" }}>
                     {data?.role}
                 </Typography>
             </TimelineOppositeContent>
             <TimelineSeparator>
-                <TimelineDot sx={{ background: theme?.palette?.secondary?.main }} />
+                <TimelineDot sx={{ background: index == 0 ? theme?.palette?.primary?.main : theme?.palette?.secondary?.main }} />
                 {
                     size - 1 !== index && (
                         <TimelineConnector sx={{ background: theme?.palette?.secondary?.main }} />
@@ -26,7 +26,7 @@ const ExperienceStrip = ({ data, index, size }) => {
                 }
             </TimelineSeparator>
             <TimelineContent>
-                <Typography variant='h6' color='gray' sx={{ margin: 'auto' }}>
+                <Typography variant='h6' sx={{ margin: 'auto', color: index == 0 ? theme?.palette?.primary?.main : "gray" }}>
                     {data?.company}
                 </Typography>
             </TimelineContent>

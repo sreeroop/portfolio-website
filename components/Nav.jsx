@@ -45,24 +45,22 @@ const Nav = () => {
     };
     const showStack = useMediaQuery(theme?.breakpoints?.up('lg'));
     return (
-        <AppBar component="nav" sx={{ background: `linear-gradient(180deg,${theme?.palette?.secondary?.main} 15%,rgba(0,0,0,0))`, position: 'fixed', left: 0, top: 0, display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', height: '10vh', width: '100vw', boxShadow: 'none' }
+        <AppBar component="nav" sx={{ background: `transparent`, backdropFilter: "blur(12px)", position: 'fixed', left: 0, top: 0, display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', height: '10vh', width: '100vw', boxShadow: 'none', borderBottom: "1px solid #a1aa1a1" }
         }>
             <Typography variant='h5'
                 sx={{
-                    backgroundcolor: "primary",
-                    backgroundImage: `linear-gradient(45deg, ${theme?.palette?.color?.main} , ${theme?.palette?.primary?.main} )`,
+                    color: theme?.palette?.secondary?.main, marginLeft: '15px',
+                    backgroundImage: `linear-gradient(135deg, ${theme?.palette?.primary?.main} , ${theme?.palette?.secondary?.main} )`,
                     backgroundSize: "100%",
                     backgroundRepeat: "repeat",
                     backgroundClip: "text",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
-                    marginLeft: '20px',
-                    color: theme?.palette?.color?.main,
                 }}
             // sx={{
 
             // }}
-            >SREEROOP</Typography>
+            >sreeroop</Typography>
             <Box sx={{
                 marginLeft: '20px',
 
@@ -85,15 +83,16 @@ const Nav = () => {
                     <Link href="/resume.pdf">
                         <Button varient="contained" sx={{
                             padding: '5px 15px',
-
+                            fontWeight: 900,
+                            textTransform: "lowercase"
                         }}>
-                            Resume
+                            resume
                         </Button>
                     </Link>
-                    <Link spy smooth offset={-100} to="experience">Experience</Link>
-                    <Link spy smooth offset={-100} to="projects">Projects</Link>
-                    <Link spy smooth offset={-100} to="skills">Skills</Link>
-                    <Link spy smooth offset={-100} to="connect">Connect</Link>
+                    <Link spy smooth offset={-100} to="experience">experience</Link>
+                    <Link spy smooth offset={-100} to="projects">projects</Link>
+                    <Link spy smooth offset={-100} to="skills">skills</Link>
+                    <Link spy smooth offset={-100} to="connect">connect</Link>
                 </NavLinkStack>}
                 {/* </Toolbar> */}
                 <ThemeToggler />

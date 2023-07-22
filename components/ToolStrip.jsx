@@ -4,7 +4,6 @@ import { tools } from '../data/data'
 import style from '../styles/ToolStrip.module.css'
 import Tool from './Tool'
 import { useTheme } from '@mui/material'
-
 const ToolStrip = () => {
     const theme = useTheme()
 
@@ -26,9 +25,6 @@ const ToolStrip = () => {
                         })
                     } </div>
             </div>
-
-
-
         </>
 
     )
