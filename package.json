@@ -16,18 +16,15 @@
     "@mui/lab": "^5.0.0-alpha.102",
     "@mui/material": "^5.10.4",
     "@mui/styles": "^5.10.7",
-    "@react-spring/three": "^9.5.5",
-    "@react-three/drei": "^9.32.3",
-    "@react-three/fiber": "^8.0.0",
     "firebase": "^9.10.0",
+    "gsap": "^3.12.2",
     "next": "12.3.0",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-scroll": "^1.8.8",
-    "swiper": "^10.0.4",
-    "three": "^0.144.0"
+    "swiper": "^10.0.4"
   },
   "devDependencies": {
     "eslint": "8.23.0",

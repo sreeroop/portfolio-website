@@ -27,8 +27,8 @@ const ProjectCard = ({ data }) => {
                 {
                     data?.tools?.map((tool, index) => {
                         return (
-                            <div key={index} style={{ width: '30px', height: '30px', objectFit: 'cover' }}>
-                                <img src={`/${tool}.svg`} style={{ width: '100%', height: '100%' }} alt="" />
+                            <div key={index} style={{ whiteSpace: 'nowrap' }}>
+                                <h6>#{tool.toLowerCase()}</h6>
                             </div>
                         )
                     })

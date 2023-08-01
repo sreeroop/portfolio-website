@@ -78,7 +78,7 @@
     background: linear-gradient(0deg,
             rgba(251, 91, 83, 0.1) 33%,
             #dce2e7 100%);
-    animation: spin3D 2.2s linear 0s infinite;
+    animation: spin3D 10s linear 0s infinite;
 }
 
 .leo-core-2 {
