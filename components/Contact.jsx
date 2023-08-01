@@ -34,7 +34,7 @@ const Contact = () => {
     return (
         <Box sx={{
             minWidth: '350px',
-            height: '50vh',
+            height: '400px',
             display: "flex",
             justifyContent: 'space-around',
             alignItems: 'center',

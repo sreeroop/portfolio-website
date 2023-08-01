@@ -15,7 +15,8 @@ const Tool = ({ tool }) => {
                 display: 'flex',
                 justifyContent: 'space-around',
                 alignItems: 'center',
-                flexDirection: 'row-reverse'
+                flexDirection: 'row-reverse',
+
             }}>
                 <div style={{ height: '30px', width: '30px', objectFit: 'cover', overflow: 'hidden' }}>
                     {tool?.name == 'NextJS' && <NextIcon color={theme?.palette?.color?.main} />}

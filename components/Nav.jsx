@@ -158,13 +158,13 @@ const Nav = () => {
                             <Button varient="contained" sx={{
                                 padding: '5px 15px',
                             }}>
-                                Resume
+                                resume
                             </Button>
                         </Link>
-                        <Link to="experience">Experience</Link>
-                        <Link to="projects">Projects</Link>
-                        <Link to="skills">Skills</Link>
-                        <Link to="connect">Connect</Link>
+                        <Link to="experience">experience</Link>
+                        <Link to="projects">projects</Link>
+                        <Link to="skills">skills</Link>
+                        <Link to="connect">connect</Link>
                     </NavLinkStack>
                 </Box>
             </Drawer>

@@ -32,5 +32,5 @@ a {
 #path {
   stroke-dasharray: 1435.8399;
   stroke-dashoffset: 1435.8399658203125;
-  animation: anim 3s linear infinite;
+  animation: anim 10s linear infinite;
 }
