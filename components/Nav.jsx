@@ -77,7 +77,7 @@ const Nav = () => {
 
             </Box>
 
-            <Stack direction='row' alignItems="center" sx={{ position: 'relative' }} spacing={3} mr={4}>
+            <Stack direction='row' alignItems="center" sx={{ position: 'relative', color: theme?.palette?.color?.main }} spacing={3} mr={4}>
                 {/* <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', width: '30vw' }}> */}
                 {showStack && <NavLinkStack direction='row' alignItems="center" spacing={4}>
                     <Link href="/resume.pdf">

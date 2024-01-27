@@ -8,7 +8,7 @@ const Tool = ({ tool }) => {
     return (
         <span className='tool' style={{ width: '160px', height: '50px' }}>
             <div style={{
-                boxShadow: `0 10px 50px ${(tool?.name == 'NextJS' || tool?.name == 'ExpressJS' || tool?.name == 'ThreeJS') ? theme?.palette?.color?.main : tool?.color}`,
+                boxShadow: `0 5px 25px ${(tool?.name == 'NextJS' || tool?.name == 'ExpressJS' || tool?.name == 'ThreeJS') ? theme?.palette?.color?.main : tool?.color}`,
                 border: `1px solid ${(tool?.name == 'NextJS' || tool?.name == 'ExpressJS' || tool?.name == 'ThreeJS') ? theme?.palette?.color?.main : tool?.color}`,
                 width: '100%',
                 height: '100%',
